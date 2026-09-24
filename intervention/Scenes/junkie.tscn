@@ -1,0 +1,84 @@
+[gd_scene load_steps=11 format=3 uid="uid://dfwqm6i0dcfor"]
+
+[ext_resource type="Script" uid="uid://ci5mvgb5ia0lb" path="res://Scripts/enemyComp.gd" id="1_jvjyq"]
+[ext_resource type="PackedScene" uid="uid://drsmr2owf0uc" path="res://Scenes/weapon_related/weapon_scene/null_weapin.tscn" id="2_1orqi"]
+[ext_resource type="Script" uid="uid://bb6sqr6dbl0mf" path="res://Scripts/item_handler_enemy.gd" id="2_ufmve"]
+[ext_resource type="Script" uid="uid://b021umbr2u006" path="res://Scripts/weapon related/hitbox.gd" id="5_7jj7h"]
+[ext_resource type="AudioStream" uid="uid://bywsuj7g8336m" path="res://Sounds/NonWeaponRelated/footsteps.mp3" id="7_cksaq"]
+[ext_resource type="AudioStream" uid="uid://osawg7ynj2g5" path="res://Sounds/NonWeaponRelated/enemyHit.mp3" id="8_4sou5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1orqi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cksaq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b6jri"]
+radius = 6.0
+height = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_405in"]
+radius = 3.0
+
+[node name="EnemyComp" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_jvjyq")
+starting_weapons = Array[PackedScene]([ExtResource("2_1orqi")])
+ammo_drop_multiplier = 1.0
+evade_distance = 1000
+strafe_max_distance = 500
+wander_range = 1000
+health = 50
+sprint_speed = 200
+walk_speed = 100
+team = 4
+target = 2
+metadata/_custom_type_script = "uid://ch8etq2em0s7x"
+
+[node name="item_handler_enemy" type="Node2D" parent="."]
+script = ExtResource("2_ufmve")
+metadata/_custom_type_script = "uid://bb6sqr6dbl0mf"
+
+[node name="Torso" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_1orqi")
+
+[node name="Legs" type="AnimatedSprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_cksaq")
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("5_7jj7h")
+metadata/_custom_type_script = "uid://b021umbr2u006"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(2, 0)
+shape = SubResource("CapsuleShape2D_b6jri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_405in")
+
+[node name="FOV1" type="Node2D" parent="."]
+position = Vector2(9, -8)
+
+[node name="FOV2" type="Node2D" parent="."]
+position = Vector2(9, 8)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.5, 2.38419e-07)
+scale = Vector2(0.45, 0.5)
+
+[node name="FootStepPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_cksaq")
+volume_db = -7.0
+max_distance = 500.0
+
+[node name="HitPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_4sou5")
+volume_db = 5.0
+max_polyphony = 3
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

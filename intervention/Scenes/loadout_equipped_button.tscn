@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpr6gu5rki75t"]
+
+[ext_resource type="StyleBox" uid="uid://bg0v7scblcv4v" path="res://new_style_box_empty.tres" id="1_sc0rj"]
+[ext_resource type="Script" uid="uid://cpmch3rlqccdi" path="res://Scripts/loadout_equipped_button.gd" id="2_yi8sb"]
+
+[node name="loadout_equipped_button" type="Button"]
+texture_filter = 1
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_filter = 2
+theme_override_styles/focus = ExtResource("1_sc0rj")
+theme_override_styles/disabled_mirrored = ExtResource("1_sc0rj")
+theme_override_styles/disabled = ExtResource("1_sc0rj")
+theme_override_styles/hover_pressed_mirrored = ExtResource("1_sc0rj")
+theme_override_styles/hover_pressed = ExtResource("1_sc0rj")
+theme_override_styles/hover_mirrored = ExtResource("1_sc0rj")
+theme_override_styles/hover = ExtResource("1_sc0rj")
+theme_override_styles/pressed_mirrored = ExtResource("1_sc0rj")
+theme_override_styles/pressed = ExtResource("1_sc0rj")
+theme_override_styles/normal_mirrored = ExtResource("1_sc0rj")
+theme_override_styles/normal = ExtResource("1_sc0rj")
+script = ExtResource("2_yi8sb")
+metadata/_custom_type_script = "uid://cpmch3rlqccdi"

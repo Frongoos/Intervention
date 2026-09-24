@@ -1,0 +1,82 @@
+[gd_scene load_steps=14 format=3 uid="uid://dicvjfpjv26qr"]
+
+[ext_resource type="Script" uid="uid://dhxxbmlmys5ak" path="res://Scripts/weapon related/gun.gd" id="1_uym1w"]
+[ext_resource type="PackedScene" uid="uid://tapco32offj8" path="res://Scenes/weapon_related/bullet.tscn" id="2_5qwf5"]
+[ext_resource type="Texture2D" uid="uid://c06mpx7jwgsbf" path="res://Sprites/M4A1.png" id="2_88jco"]
+[ext_resource type="Texture2D" uid="uid://b3j34qewa1f4g" path="res://Sprites/muzzleflash.png" id="4_f20sl"]
+[ext_resource type="AudioStream" uid="uid://bg8bqyi2i4sl7" path="res://Sounds/WeaponRelated/ARreload.mp3" id="5_13b2u"]
+[ext_resource type="Texture2D" uid="uid://cvogeoylc808k" path="res://Sprites/7.62mmCasing.png" id="5_ax122"]
+[ext_resource type="Material" uid="uid://cchhuxdcadke3" path="res://Scenes/weapon_related/weapon_scene/weapon_casing_process_material.tres" id="6_otm8v"]
+[ext_resource type="AudioStream" uid="uid://c3beex5ypvdbh" path="res://Sounds/WeaponRelated/arShot.mp3" id="6_ywuhv"]
+
+[sub_resource type="AudioStream" id="AudioStream_ax122"]
+
+[sub_resource type="AudioStream" id="AudioStream_otm8v"]
+
+[sub_resource type="AudioStream" id="AudioStream_13b2u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qwf5"]
+atlas = ExtResource("2_88jco")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f20sl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qwf5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="M4A1" type="Node2D"]
+script = ExtResource("1_uym1w")
+bullet_speed = 500.0
+bullet_scene = ExtResource("2_5qwf5")
+bullet_lifetime = 10.0
+bullet_reflect = 1
+reload_duration = 1.0
+ammo_capacity = 30
+reload_sound = SubResource("AudioStream_ax122")
+move_speed_debuff = 0.95
+move_speed_debuff_duration = 0.1
+flash_intestity = Array[float]([0.0, 0.3, 0.7, 0.3, 0.0])
+ammo_type = 3
+damage = 10
+type = 1
+equip_sound = SubResource("AudioStream_otm8v")
+use_sound = SubResource("AudioStream_13b2u")
+attack_delay = 0.1
+can_hold_attack = true
+metadata/_custom_type_script = "uid://dhxxbmlmys5ak"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_f20sl")
+
+[node name="BarrelPoint" type="Node2D" parent="."]
+position = Vector2(26, 0)
+
+[node name="MuzzleFlash" type="PointLight2D" parent="."]
+position = Vector2(26, 0)
+texture = ExtResource("4_f20sl")
+
+[node name="ReloadNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_13b2u")
+
+[node name="UseNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ywuhv")
+attenuation = 0.7
+max_polyphony = 10
+
+[node name="CasingEmitter" type="GPUParticles2D" parent="."]
+z_index = 1
+position = Vector2(12, -1)
+emitting = false
+amount = 10
+texture = ExtResource("5_ax122")
+collision_base_size = 0.0
+process_material = ExtResource("6_otm8v")

@@ -1,0 +1,158 @@
+[gd_scene load_steps=21 format=3 uid="uid://cvfhhbd3e0gs6"]
+
+[ext_resource type="Script" uid="uid://bjapasrbff5u" path="res://Scenes/warehouse_end_scene.gd" id="1_l2xj6"]
+[ext_resource type="Texture2D" uid="uid://bb0b6g28txay3" path="res://Sprites/warehouse_end_scene.png" id="2_l2xj6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt1yl"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(3200, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vc46"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(3520, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7m5ur"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(3840, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tp077"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(4160, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nnlb"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(4480, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bbtw"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(4800, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0abl8"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(5120, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrncv"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(5440, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5lm8"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbvmf"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v7l0"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(640, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i020j"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(960, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eoqb1"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(1280, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjey7"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(1600, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kausn"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(1920, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmxup"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(2240, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hydu7"]
+atlas = ExtResource("2_l2xj6")
+region = Rect2(2560, 0, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5fp58"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pt1yl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vc46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7m5ur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tp077")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nnlb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bbtw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0abl8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrncv")
+}],
+"loop": false,
+"name": &"Computer",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5lm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbvmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4v7l0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i020j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eoqb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjey7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kausn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmxup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hydu7")
+}],
+"loop": false,
+"name": &"FloppyLoad",
+"speed": 5.0
+}]
+
+[node name="level_end_scene" type="Node2D"]
+script = ExtResource("1_l2xj6")
+metadata/_custom_type_script = "uid://pr0ks7ndhete"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_5fp58")
+animation = &"Computer"
+
+[node name="AfterFLoppyDelay" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="AfterComputerDelay" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true

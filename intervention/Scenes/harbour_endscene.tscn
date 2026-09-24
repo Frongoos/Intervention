@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://dy56skisx4v8l"]
+
+[ext_resource type="Script" uid="uid://dni7j10v0prhk" path="res://level_end_scene.gd" id="1_lhesu"]
+[ext_resource type="Texture2D" uid="uid://boet4b3ei1qic" path="res://Sprites/harbour_endscene.png" id="2_dau4h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7ep1"]
+atlas = ExtResource("2_dau4h")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pw18"]
+atlas = ExtResource("2_dau4h")
+region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dau4h"]
+atlas = ExtResource("2_dau4h")
+region = Rect2(0, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilydf"]
+atlas = ExtResource("2_dau4h")
+region = Rect2(640, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_750l3"]
+atlas = ExtResource("2_dau4h")
+region = Rect2(960, 0, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7gbeo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7ep1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pw18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dau4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilydf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_750l3")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.5
+}]
+
+[node name="level_end_scene" type="Node2D"]
+script = ExtResource("1_lhesu")
+metadata/_custom_type_script = "uid://pr0ks7ndhete"
+
+[node name="StartTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_7gbeo")
+
+[node name="AnimationTimer" type="Timer" parent="."]
+wait_time = 12.0
+one_shot = true

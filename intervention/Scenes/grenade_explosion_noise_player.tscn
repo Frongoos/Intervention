@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://djlrm7cu8icic"]
+
+[ext_resource type="AudioStream" uid="uid://b14ffmapuebt4" path="res://Sounds/WeaponRelated/grenadeExplosion.mp3" id="1_k8u4c"]
+[ext_resource type="Script" uid="uid://jtb0uupdajah" path="res://Scenes/grenade_explosion_noise_player.gd" id="2_fuhdi"]
+
+[node name="ExplosionNoisePlayer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_k8u4c")
+volume_db = 4.0
+script = ExtResource("2_fuhdi")

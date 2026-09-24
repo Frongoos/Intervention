@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://cbwtn7v1o1iyt"]
+
+[ext_resource type="Texture2D" uid="uid://p0dg84s6cqr" path="res://Sprites/warehouse_blue_death.png" id="1_dkbbx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq6gr"]
+atlas = ExtResource("1_dkbbx")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fihlc"]
+atlas = ExtResource("1_dkbbx")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jalgh"]
+atlas = ExtResource("1_dkbbx")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbncw"]
+atlas = ExtResource("1_dkbbx")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nv31i"]
+atlas = ExtResource("1_dkbbx")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cfqf"]
+atlas = ExtResource("1_dkbbx")
+region = Rect2(320, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq6gr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fihlc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jalgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbncw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nv31i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cfqf")
+}],
+"loop": false,
+"name": &"die",
+"speed": 20.0
+}]

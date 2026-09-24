@@ -1,0 +1,86 @@
+[gd_resource type="SpriteFrames" load_steps=12 format=3 uid="uid://b06jnl2ffr2v8"]
+
+[ext_resource type="Texture2D" uid="uid://bxsiat1oeip0m" path="res://Sprites/intervention_warehouser_legs.png" id="1_tt4ce"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tt4ce"]
+atlas = ExtResource("1_tt4ce")
+region = Rect2(0, 0, 72, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxyyi"]
+atlas = ExtResource("1_tt4ce")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6g157"]
+atlas = ExtResource("1_tt4ce")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0sbv"]
+atlas = ExtResource("1_tt4ce")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cq4v"]
+atlas = ExtResource("1_tt4ce")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0bqo"]
+atlas = ExtResource("1_tt4ce")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iqu4"]
+atlas = ExtResource("1_tt4ce")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gslot"]
+atlas = ExtResource("1_tt4ce")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amuo7"]
+atlas = ExtResource("1_tt4ce")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyija"]
+atlas = ExtResource("1_tt4ce")
+region = Rect2(512, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tt4ce")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxyyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6g157")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0sbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cq4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0bqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iqu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gslot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amuo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyija")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]

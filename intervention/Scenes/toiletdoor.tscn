@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4quqcfa3ns4i"]
+
+[ext_resource type="Script" uid="uid://ceddig2wpwmat" path="res://Scripts/door.gd" id="1_i1j0s"]
+[ext_resource type="Texture2D" uid="uid://bret1ebmppt4x" path="res://Sprites/cubicledoor.png" id="2_kjdv0"]
+[ext_resource type="AudioStream" uid="uid://cx8jsekslyry4" path="res://Sounds/NonWeaponRelated/doorOpen.mp3" id="3_wflq7"]
+[ext_resource type="AudioStream" uid="uid://0sl38h71nctj" path="res://Sounds/NonWeaponRelated/doorClose.mp3" id="4_4bk2v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wflq7"]
+size = Vector2(37, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bk2v"]
+size = Vector2(36, 6)
+
+[sub_resource type="Animation" id="Animation_0phs7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_v6xrn"]
+resource_name = "new_animation"
+length = 0.51
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_50cdl"]
+_data = {
+&"RESET": SubResource("Animation_0phs7"),
+&"open": SubResource("Animation_v6xrn")
+}
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hrf8x"]
+polygon = PackedVector2Array(-15.1323, -0.181922, -15.1323, 1.81808, 20.8677, 1.81808, 20.8677, -0.181922)
+
+[node name="toiletdoor" type="CharacterBody2D"]
+script = ExtResource("1_i1j0s")
+sprite = ExtResource("2_kjdv0")
+metadata/_custom_type_script = "uid://ceddig2wpwmat"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(18, 0)
+texture = ExtResource("2_kjdv0")
+
+[node name="useBox" type="Area2D" parent="."]
+position = Vector2(5.13882, 1.53852)
+collision_layer = 64
+collision_mask = 68
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="useBox"]
+position = Vector2(13.3612, -1.03852)
+shape = SubResource("RectangleShape2D_wflq7")
+debug_color = Color(0.718458, 0.703907, 0.316006, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(18, 0)
+shape = SubResource("RectangleShape2D_4bk2v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_50cdl")
+}
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(15.1323, -0.818078)
+occluder = SubResource("OccluderPolygon2D_hrf8x")
+
+[node name="OpenNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wflq7")
+
+[node name="CloseNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4bk2v")

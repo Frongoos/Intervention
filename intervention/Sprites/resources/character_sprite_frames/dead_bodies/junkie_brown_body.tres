@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://bl1ttgqwpkk1p"]
+
+[ext_resource type="Texture2D" uid="uid://dqlhg78t0cyjj" path="res://Sprites/junkie_brown_death.png" id="1_th8r5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rffwd"]
+atlas = ExtResource("1_th8r5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ntul"]
+atlas = ExtResource("1_th8r5")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg4e1"]
+atlas = ExtResource("1_th8r5")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deetb"]
+atlas = ExtResource("1_th8r5")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5voom"]
+atlas = ExtResource("1_th8r5")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe4fy"]
+atlas = ExtResource("1_th8r5")
+region = Rect2(320, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rffwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ntul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg4e1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deetb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5voom")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe4fy")
+}],
+"loop": false,
+"name": &"die",
+"speed": 20.0
+}]

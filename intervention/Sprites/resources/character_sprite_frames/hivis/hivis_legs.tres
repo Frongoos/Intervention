@@ -1,0 +1,79 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://booxh48pddycn"]
+
+[ext_resource type="Texture2D" uid="uid://dy5w8pxow3bsl" path="res://Sprites/hivis_legs.png" id="1_qvdr0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q1p0w"]
+atlas = ExtResource("1_qvdr0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eipe0"]
+atlas = ExtResource("1_qvdr0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scj6b"]
+atlas = ExtResource("1_qvdr0")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5t1c"]
+atlas = ExtResource("1_qvdr0")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ak4e0"]
+atlas = ExtResource("1_qvdr0")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6g3e"]
+atlas = ExtResource("1_qvdr0")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4yev"]
+atlas = ExtResource("1_qvdr0")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avx36"]
+atlas = ExtResource("1_qvdr0")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmhkf"]
+atlas = ExtResource("1_qvdr0")
+region = Rect2(512, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q1p0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eipe0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scj6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5t1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ak4e0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6g3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4yev")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avx36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmhkf")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]

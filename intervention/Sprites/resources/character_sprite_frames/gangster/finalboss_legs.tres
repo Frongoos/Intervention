@@ -1,0 +1,79 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://xnxhv7gbqxk4"]
+
+[ext_resource type="Texture2D" uid="uid://c70x486kas72w" path="res://Sprites/final_bossLegs.png" id="1_kcdx5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkmr7"]
+atlas = ExtResource("1_kcdx5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kap00"]
+atlas = ExtResource("1_kcdx5")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljx7o"]
+atlas = ExtResource("1_kcdx5")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqk7y"]
+atlas = ExtResource("1_kcdx5")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snqa4"]
+atlas = ExtResource("1_kcdx5")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wans"]
+atlas = ExtResource("1_kcdx5")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol3wg"]
+atlas = ExtResource("1_kcdx5")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv5yc"]
+atlas = ExtResource("1_kcdx5")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_15kmb"]
+atlas = ExtResource("1_kcdx5")
+region = Rect2(512, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkmr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kap00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljx7o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qqk7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snqa4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wans")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol3wg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv5yc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_15kmb")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]

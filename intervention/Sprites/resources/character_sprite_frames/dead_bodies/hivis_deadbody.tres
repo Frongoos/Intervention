@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://coh7cf1gffv72"]
+
+[ext_resource type="Texture2D" uid="uid://ticpme4flv76" path="res://Sprites/hivis_death.png" id="1_d4t02"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_juf45"]
+atlas = ExtResource("1_d4t02")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4ac5"]
+atlas = ExtResource("1_d4t02")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ul558"]
+atlas = ExtResource("1_d4t02")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dms2e"]
+atlas = ExtResource("1_d4t02")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0fxf"]
+atlas = ExtResource("1_d4t02")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vpwe1"]
+atlas = ExtResource("1_d4t02")
+region = Rect2(320, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_juf45")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4ac5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ul558")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dms2e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0fxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vpwe1")
+}],
+"loop": false,
+"name": &"die",
+"speed": 20.0
+}]

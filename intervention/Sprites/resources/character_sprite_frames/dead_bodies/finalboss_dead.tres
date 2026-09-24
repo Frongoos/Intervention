@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://r8e0b4s7enbs"]
+
+[ext_resource type="Texture2D" uid="uid://dhy3acunlobdt" path="res://Sprites/finalboss_death.png" id="1_cx1rt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0gu5a"]
+atlas = ExtResource("1_cx1rt")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvyjh"]
+atlas = ExtResource("1_cx1rt")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aiokw"]
+atlas = ExtResource("1_cx1rt")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0u376"]
+atlas = ExtResource("1_cx1rt")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ailoa"]
+atlas = ExtResource("1_cx1rt")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amofr"]
+atlas = ExtResource("1_cx1rt")
+region = Rect2(320, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0gu5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvyjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aiokw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0u376")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ailoa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amofr")
+}],
+"loop": false,
+"name": &"die",
+"speed": 20.0
+}]

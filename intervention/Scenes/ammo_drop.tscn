@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://d06vmdt6m5o36"]
+
+[ext_resource type="Script" uid="uid://wrl431o5s76" path="res://Scripts/ammo_drop.gd" id="1_edj2j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_te2cy"]
+size = Vector2(4, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e427d"]
+
+[node name="AmmoDrop" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_edj2j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -3
+texture_filter = 1
+animation = &""
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_te2cy")
+
+[node name="PickUpBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpBox"]
+shape = SubResource("RectangleShape2D_e427d")
+
+[connection signal="area_entered" from="PickUpBox" to="." method="_on_pick_up_box_area_entered"]

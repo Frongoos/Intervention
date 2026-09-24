@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://dlqivyoydbv3m"]
+
+[ext_resource type="Script" uid="uid://82y278wg1h7y" path="res://Scripts/end_level_objective.gd" id="1_gt45d"]
+[ext_resource type="Texture2D" uid="uid://b0udf5q5mq48a" path="res://Sprites/warehouse_floppy.png" id="2_odah5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61hwf"]
+atlas = ExtResource("2_odah5")
+region = Rect2(0, 0, 10, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qycgp"]
+atlas = ExtResource("2_odah5")
+region = Rect2(10, 0, 10, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vaqkw"]
+atlas = ExtResource("2_odah5")
+region = Rect2(20, 0, 10, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mlhdu"]
+atlas = ExtResource("2_odah5")
+region = Rect2(30, 0, 10, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vnah"]
+atlas = ExtResource("2_odah5")
+region = Rect2(40, 0, 10, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xtxv"]
+atlas = ExtResource("2_odah5")
+region = Rect2(50, 0, 10, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hwcd"]
+atlas = ExtResource("2_odah5")
+region = Rect2(60, 0, 10, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_14wuu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_61hwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qycgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vaqkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlhdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vnah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xtxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hwcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xtxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vnah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mlhdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vaqkw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qycgp")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4t0qf"]
+
+[node name="warehouseFloppy" type="Node2D"]
+script = ExtResource("1_gt45d")
+metadata/_custom_type_script = "uid://82y278wg1h7y"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_14wuu")
+animation = &"Idle"
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4t0qf")

@@ -1,0 +1,68 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://cfn1v47inubr2"]
+
+[ext_resource type="Texture2D" uid="uid://o8im20puu23t" path="res://Sprites/junkie_white.png" id="1_k4xl0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2vba"]
+atlas = ExtResource("1_k4xl0")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk7ym"]
+atlas = ExtResource("1_k4xl0")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5iwve"]
+atlas = ExtResource("1_k4xl0")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf32i"]
+atlas = ExtResource("1_k4xl0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sxdn"]
+atlas = ExtResource("1_k4xl0")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cinj3"]
+atlas = ExtResource("1_k4xl0")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3qat"]
+atlas = ExtResource("1_k4xl0")
+region = Rect2(192, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2vba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk7ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5iwve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xf32i")
+}],
+"loop": false,
+"name": &"idles",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sxdn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cinj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3qat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sxdn")
+}],
+"loop": false,
+"name": &"melee_swing",
+"speed": 12.0
+}]

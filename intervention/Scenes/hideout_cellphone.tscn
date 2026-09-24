@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=3 uid="uid://4xba75dqcflf"]
+
+[ext_resource type="Script" uid="uid://82y278wg1h7y" path="res://Scripts/end_level_objective.gd" id="1_uek1c"]
+[ext_resource type="Texture2D" uid="uid://c7rtesqf5nlc6" path="res://Sprites/hideout_cellphone.png" id="2_x2hlj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyeug"]
+atlas = ExtResource("2_x2hlj")
+region = Rect2(0, 0, 6, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjbr3"]
+atlas = ExtResource("2_x2hlj")
+region = Rect2(6, 0, 6, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7gyg"]
+atlas = ExtResource("2_x2hlj")
+region = Rect2(12, 0, 6, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58pn0"]
+atlas = ExtResource("2_x2hlj")
+region = Rect2(18, 0, 6, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghrh1"]
+atlas = ExtResource("2_x2hlj")
+region = Rect2(24, 0, 6, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbd1f"]
+atlas = ExtResource("2_x2hlj")
+region = Rect2(30, 0, 6, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nqjb"]
+atlas = ExtResource("2_x2hlj")
+region = Rect2(36, 0, 6, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x2hlj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyeug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjbr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7gyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58pn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghrh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbd1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5nqjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbd1f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghrh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58pn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7gyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjbr3")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uek1c"]
+size = Vector2(34, 32)
+
+[node name="hideout_cellphone" type="Node2D"]
+script = ExtResource("1_uek1c")
+metadata/_custom_type_script = "uid://82y278wg1h7y"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_x2hlj")
+animation = &"Idle"
+frame_progress = 0.224356
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_uek1c")

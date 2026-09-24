@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctrqqptj5x7tl"]
+
+[ext_resource type="AudioStream" uid="uid://7i385nqjel65" path="res://Sounds/NonWeaponRelated/deathGrunts/barrelExplosion.mp3" id="1_rysw8"]
+[ext_resource type="Script" uid="uid://08df3fyoes75" path="res://barrel_explosion_player.gd" id="2_6hob7"]
+
+[node name="BarrelExplosionPlayer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_rysw8")
+volume_db = 5.0
+script = ExtResource("2_6hob7")

@@ -1,0 +1,72 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://dg8w7nnsrfphq"]
+
+[ext_resource type="Texture2D" uid="uid://1bojdpsvhwgb" path="res://Sprites/intervention_gangster_3.png" id="1_cuch1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qtu6"]
+atlas = ExtResource("1_cuch1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxao0"]
+atlas = ExtResource("1_cuch1")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql5t0"]
+atlas = ExtResource("1_cuch1")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4lf0"]
+atlas = ExtResource("1_cuch1")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tu2k"]
+atlas = ExtResource("1_cuch1")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ld7ta"]
+atlas = ExtResource("1_cuch1")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7mge"]
+atlas = ExtResource("1_cuch1")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pct0i"]
+atlas = ExtResource("1_cuch1")
+region = Rect2(192, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qtu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxao0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql5t0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4lf0")
+}],
+"loop": false,
+"name": &"idles",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tu2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ld7ta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7mge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pct0i")
+}],
+"loop": false,
+"name": &"melee_swing",
+"speed": 12.0
+}]

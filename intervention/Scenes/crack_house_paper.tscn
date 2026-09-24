@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=3 uid="uid://3sc6mwd3lii3"]
+
+[ext_resource type="Script" uid="uid://82y278wg1h7y" path="res://Scripts/end_level_objective.gd" id="1_5fvsy"]
+[ext_resource type="Texture2D" uid="uid://dkmoqc85whbms" path="res://Sprites/creackhouse_note.png" id="1_c5i2a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fvsy"]
+atlas = ExtResource("1_c5i2a")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te2rg"]
+atlas = ExtResource("1_c5i2a")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n1efe"]
+atlas = ExtResource("1_c5i2a")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85qjl"]
+atlas = ExtResource("1_c5i2a")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx4gy"]
+atlas = ExtResource("1_c5i2a")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uvmv"]
+atlas = ExtResource("1_c5i2a")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jfbhv"]
+atlas = ExtResource("1_c5i2a")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sw817"]
+atlas = ExtResource("1_c5i2a")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_14ecd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fvsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te2rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1efe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85qjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx4gy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uvmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfbhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sw817")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jfbhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uvmv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx4gy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85qjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n1efe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te2rg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fvsy")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5i2a"]
+
+[node name="CrackHousePaper" type="Node2D"]
+script = ExtResource("1_5fvsy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(6, -2)
+sprite_frames = SubResource("SpriteFrames_14ecd")
+animation = &"Idle"
+frame_progress = 0.3255
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_c5i2a")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

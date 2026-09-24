@@ -1,0 +1,79 @@
+[gd_resource type="SpriteFrames" load_steps=11 format=3 uid="uid://j2fj55e0pkyj"]
+
+[ext_resource type="Texture2D" uid="uid://c66gt3njghbya" path="res://Sprites/intervention_gangster_jeans.png" id="1_ti8fe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oicni"]
+atlas = ExtResource("1_ti8fe")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyjq7"]
+atlas = ExtResource("1_ti8fe")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkh26"]
+atlas = ExtResource("1_ti8fe")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pj3rj"]
+atlas = ExtResource("1_ti8fe")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03e8y"]
+atlas = ExtResource("1_ti8fe")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_it0aw"]
+atlas = ExtResource("1_ti8fe")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikc12"]
+atlas = ExtResource("1_ti8fe")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkbh0"]
+atlas = ExtResource("1_ti8fe")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkodv"]
+atlas = ExtResource("1_ti8fe")
+region = Rect2(512, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oicni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyjq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkh26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pj3rj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03e8y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_it0aw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikc12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkbh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkodv")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]

@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://tapco32offj8"]
+
+[ext_resource type="Script" uid="uid://c0xqqtlkb8nca" path="res://Scripts/weapon related/bullet.gd" id="1_ycag2"]
+[ext_resource type="Script" uid="uid://b2jke8qx3hoyq" path="res://Scripts/weapon related/hurtbox.gd" id="2_6afsh"]
+[ext_resource type="Texture2D" uid="uid://bujbgr4kpfcdp" path="res://Sprites/bullet_final.png" id="4_6afsh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_odot3"]
+size = Vector2(7.36447, 1.67511)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8o6v"]
+size = Vector2(1.97691, 7.96812)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r5sau"]
+light_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odot3"]
+atlas = ExtResource("4_6afsh")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t8o6v"]
+atlas = ExtResource("4_6afsh")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qttmj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odot3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t8o6v")
+}],
+"loop": true,
+"name": &"trail",
+"speed": 5.0
+}]
+
+[node name="bullet" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_ycag2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.141111, -0.00432375)
+shape = SubResource("RectangleShape2D_odot3")
+
+[node name="hurtbox" type="Area2D" parent="."]
+rotation = 1.5708
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("2_6afsh")
+metadata/_custom_type_script = "uid://b2jke8qx3hoyq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(0.0107673, -0.0203823)
+shape = SubResource("RectangleShape2D_t8o6v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_r5sau")
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_qttmj")
+animation = &"trail"
+
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]

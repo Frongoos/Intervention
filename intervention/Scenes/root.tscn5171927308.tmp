@@ -1,0 +1,1316 @@
+[gd_scene load_steps=131 format=3 uid="uid://dgs8k8ag03mt2"]
+
+[ext_resource type="Script" uid="uid://dcw3u02fd1tyn" path="res://Scripts/root.gd" id="1_8pvmw"]
+[ext_resource type="Script" uid="uid://cjv07o1a7i75x" path="res://Scenes/level_holder.gd" id="2_c3mwy"]
+[ext_resource type="PackedScene" uid="uid://wns13if5kny4" path="res://Scenes/menu.tscn" id="2_vnucn"]
+[ext_resource type="Texture2D" uid="uid://d1evu5am66bp4" path="res://Sprites/black.png" id="3_c3mwy"]
+[ext_resource type="Texture2D" uid="uid://bkqxhrq2ct0ye" path="res://Sprites/money_collected.png" id="5_4g5cr"]
+[ext_resource type="Texture2D" uid="uid://bjxhjyti2ugk3" path="res://Sprites/money_sprites.png" id="5_ckhy6"]
+[ext_resource type="Script" uid="uid://cd1j0e83leisr" path="res://Scenes/end_level_money_counter.gd" id="5_r3lo5"]
+[ext_resource type="Texture2D" uid="uid://7f8470u3ln1a" path="res://Sprites/empty_digit.png" id="7_qtxxq"]
+[ext_resource type="Script" uid="uid://cs7d40htsggew" path="res://Scenes/money_digit.gd" id="8_qtxxq"]
+[ext_resource type="Texture2D" uid="uid://bh8tkw5bdavra" path="res://Sprites/loadout_sprite.png" id="10_fu36u"]
+[ext_resource type="Script" uid="uid://c2vvd3eoktsqv" path="res://Scenes/inbetween_level_ui.gd" id="10_lwnbm"]
+[ext_resource type="Texture2D" uid="uid://dhkemxknbyr43" path="res://Sprites/continue_sprite.png" id="11_lwnbm"]
+[ext_resource type="Texture2D" uid="uid://bbb1sg38sud3k" path="res://Sprites/store_sprite.png" id="12_20eh2"]
+[ext_resource type="Texture2D" uid="uid://cbt7silh8pu7o" path="res://Sprites/weapon_icons/revolver_shop_icon.png" id="14_2mc6k"]
+[ext_resource type="Texture2D" uid="uid://cw6ceanqe58me" path="res://Sprites/weapon_icons/loadout_primary_empty.png" id="14_8p807"]
+[ext_resource type="Script" uid="uid://pl7xpq1cecxe" path="res://Scenes/loadout_ui.gd" id="14_51qfo"]
+[ext_resource type="Texture2D" uid="uid://dyqgsi28qbfsv" path="res://Sprites/9mm_shop_icon.png" id="14_epnj5"]
+[ext_resource type="Script" uid="uid://7mq7cxakq3mx" path="res://Scripts/ammo_panel.gd" id="14_ogk07"]
+[ext_resource type="Script" uid="uid://dqamn4t5pwy3h" path="res://Scenes/shop_ui.gd" id="14_qoxdu"]
+[ext_resource type="Texture2D" uid="uid://c78nbo8wwgnp0" path="res://Sprites/7.62mm_shop_icon.png" id="15_ogk07"]
+[ext_resource type="Script" uid="uid://bvk38hwa8p5mk" path="res://shop_button.gd" id="15_qoxdu"]
+[ext_resource type="Script" uid="uid://drpl2d2o0whov" path="res://Scenes/shop_box.gd" id="15_teq3f"]
+[ext_resource type="PackedScene" uid="uid://dpr6gu5rki75t" path="res://loadout_equipped_button.tscn" id="15_vdqvo"]
+[ext_resource type="Texture2D" uid="uid://b6r8lcb8xwudb" path="res://Sprites/5.56mm_shop_icon.png" id="16_j8vvb"]
+[ext_resource type="Script" uid="uid://bknhqgxq11vyu" path="res://shoplist_hbox.gd" id="16_s4qac"]
+[ext_resource type="Texture2D" uid="uid://cs7nebx8hk0k4" path="res://Sprites/12gauge_shop_icon.png" id="17_2mc6k"]
+[ext_resource type="Texture2D" uid="uid://dyvos343ypuo7" path="res://Sprites/weapon_icons/loadout_throwable_empty.png" id="17_64fwa"]
+[ext_resource type="Texture2D" uid="uid://vgvr73kq0omn" path="res://Sprites/weapon_icons/m1911_shop_icon.png" id="17_207an"]
+[ext_resource type="Texture2D" uid="uid://5tbqinleblqb" path="res://Sprites/primary.png" id="18_51qfo"]
+[ext_resource type="Texture2D" uid="uid://clk1hxfj61llo" path="res://Sprites/weapon_icons/knife_shop_icon.png" id="18_rx7ou"]
+[ext_resource type="StyleBox" uid="uid://db4c63p6ov6y0" path="res://loadout_scrollbar_grabber.tres" id="19_vdqvo"]
+[ext_resource type="Texture2D" uid="uid://b2o7x0pv4uls8" path="res://Sprites/secondary.png" id="20_64fwa"]
+[ext_resource type="Script" uid="uid://cu3qhlt8i4aoq" path="res://shop_ammo_button.gd" id="21_dw4fd"]
+[ext_resource type="Texture2D" uid="uid://cojm0w4xs3vui" path="res://Sprites/misc.png" id="22_51qfo"]
+[ext_resource type="Texture2D" uid="uid://dpjox8heyaojx" path="res://Sprites/purhcase_icon.png" id="23_capts"]
+[ext_resource type="Texture2D" uid="uid://vssh2i8okvvh" path="res://Sprites/weapon_icons/glock17_shop_icon.png" id="29_mb0cg"]
+[ext_resource type="Texture2D" uid="uid://bvhsqpbrn3fba" path="res://Sprites/weapon_icons/uzi_shop_icon.png" id="30_meti5"]
+[ext_resource type="Texture2D" uid="uid://eloqdgp6nf0m" path="res://Sprites/weapon_icons/mp5_shop_icon.png" id="31_x5sxw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv1ua"]
+atlas = ExtResource("5_ckhy6")
+region = Rect2(63, 0, 7, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dun2r"]
+atlas = ExtResource("5_ckhy6")
+region = Rect2(0, 0, 7, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3lo5"]
+atlas = ExtResource("5_ckhy6")
+region = Rect2(7, 0, 7, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtxxq"]
+atlas = ExtResource("5_ckhy6")
+region = Rect2(14, 0, 7, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fnbn"]
+atlas = ExtResource("5_ckhy6")
+region = Rect2(21, 0, 7, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6f85"]
+atlas = ExtResource("5_ckhy6")
+region = Rect2(28, 0, 7, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu36u"]
+atlas = ExtResource("5_ckhy6")
+region = Rect2(35, 0, 7, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwnbm"]
+atlas = ExtResource("5_ckhy6")
+region = Rect2(42, 0, 7, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_20eh2"]
+atlas = ExtResource("5_ckhy6")
+region = Rect2(49, 0, 7, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imcog"]
+atlas = ExtResource("5_ckhy6")
+region = Rect2(56, 0, 7, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epnj5"]
+atlas = ExtResource("5_ckhy6")
+region = Rect2(70, 0, 7, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogk07"]
+atlas = ExtResource("7_qtxxq")
+region = Rect2(0, 0, 7, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ckhy6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hv1ua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dun2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3lo5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtxxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fnbn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6f85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fu36u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwnbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_20eh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imcog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epnj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogk07")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lwnbm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_20eh2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_imcog"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hv1ua"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_epnj5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ogk07"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j8vvb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2mc6k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qoxdu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_teq3f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_capts"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5k7ik"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_207an"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rx7ou"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mb0cg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_meti5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5sxw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nmynh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b8i6p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3lwf7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vha2l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r321b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s4qac"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dw4fd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_642p6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_18fmr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lb85r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k8rbf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8p807"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vdqvo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c7unf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_64fwa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_51qfo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5k7ik"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.458824, 0.141176, 0.219608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_207an"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.458824, 0.141176, 0.219608, 1)
+
+[sub_resource type="ImageTexture" id="ImageTexture_8p807"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ib4ij"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i3oj6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0t6pp"]
+
+[sub_resource type="Theme" id="Theme_3lwf7"]
+VScrollBar/icons/decrement = SubResource("ImageTexture_8p807")
+VScrollBar/icons/decrement_highlight = SubResource("ImageTexture_8p807")
+VScrollBar/icons/decrement_pressed = SubResource("ImageTexture_8p807")
+VScrollBar/icons/increment = SubResource("ImageTexture_8p807")
+VScrollBar/icons/increment_highlight = SubResource("ImageTexture_8p807")
+VScrollBar/icons/increment_pressed = SubResource("ImageTexture_8p807")
+VScrollBar/styles/grabber = ExtResource("19_vdqvo")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_ib4ij")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_i3oj6")
+VScrollBar/styles/scroll = ExtResource("19_vdqvo")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_0t6pp")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lwnbm"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.458824, 0.141176, 0.219608, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nxybg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfpgf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ya0mi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dujcq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_81s7v"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ea228"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uo70t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yfm4x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gktcw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5avvd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6oxi5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1x7dr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s0y6o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ltirf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ku1o8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vxp2n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rh52r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4reuu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m7bbt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5tgal"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_achlr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5xmp7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_capts"]
+font_size = 10
+outline_size = 2
+outline_color = Color(0.458824, 0.141176, 0.219608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_j8vvb"]
+font_size = 5
+outline_size = 2
+outline_color = Color(0.458824, 0.141176, 0.219608, 1)
+shadow_size = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_s4qac"]
+font_size = 7
+font_color = Color(0, 0.733333, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0.230417, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s0cew"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d7xmk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gml4o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6xs3x"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hwq6u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_edike"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8j2h7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d70cd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vmgeq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1vdk6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qx11l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uwtf0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dw4fd"]
+font_color = Color(0, 0.733333, 0, 1)
+outline_size = 2
+outline_color = Color(0, 0.231373, 0, 1)
+
+[node name="root" type="Node2D"]
+script = ExtResource("1_8pvmw")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_vnucn")]
+
+[node name="MenuCamera" type="Camera2D" parent="."]
+zoom = Vector2(6, 6)
+
+[node name="LoadingScreen" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+z_as_relative = false
+position = Vector2(-5.06639e-06, 0.499998)
+scale = Vector2(5.583, 3.158)
+texture = ExtResource("3_c3mwy")
+
+[node name="LevelHolder" type="Node2D" parent="."]
+script = ExtResource("2_c3mwy")
+
+[node name="EndLevelMoneyCounter" type="Node" parent="."]
+script = ExtResource("5_r3lo5")
+
+[node name="FirstDigit" type="AnimatedSprite2D" parent="EndLevelMoneyCounter"]
+visible = false
+z_index = 6
+texture_filter = 1
+position = Vector2(20, 0)
+sprite_frames = SubResource("SpriteFrames_ckhy6")
+script = ExtResource("8_qtxxq")
+
+[node name="SecondDigit" type="AnimatedSprite2D" parent="EndLevelMoneyCounter/FirstDigit"]
+z_index = 6
+texture_filter = 1
+position = Vector2(-8, 0)
+sprite_frames = SubResource("SpriteFrames_ckhy6")
+frame = 10
+script = ExtResource("8_qtxxq")
+
+[node name="ThirdDigit" type="AnimatedSprite2D" parent="EndLevelMoneyCounter/FirstDigit/SecondDigit"]
+z_index = 6
+texture_filter = 1
+position = Vector2(-8, 0)
+sprite_frames = SubResource("SpriteFrames_ckhy6")
+frame = 11
+script = ExtResource("8_qtxxq")
+
+[node name="FourthDigit" type="AnimatedSprite2D" parent="EndLevelMoneyCounter/FirstDigit/SecondDigit/ThirdDigit"]
+z_index = 6
+texture_filter = 1
+position = Vector2(-8, 0)
+sprite_frames = SubResource("SpriteFrames_ckhy6")
+frame = 11
+script = ExtResource("8_qtxxq")
+
+[node name="FifthDigit" type="AnimatedSprite2D" parent="EndLevelMoneyCounter/FirstDigit/SecondDigit/ThirdDigit/FourthDigit"]
+z_index = 6
+texture_filter = 1
+position = Vector2(-8, 0)
+sprite_frames = SubResource("SpriteFrames_ckhy6")
+frame = 11
+script = ExtResource("8_qtxxq")
+
+[node name="SixthDigit" type="AnimatedSprite2D" parent="EndLevelMoneyCounter/FirstDigit/SecondDigit/ThirdDigit/FourthDigit/FifthDigit"]
+z_index = 6
+texture_filter = 1
+position = Vector2(-8, 0)
+sprite_frames = SubResource("SpriteFrames_ckhy6")
+frame = 11
+script = ExtResource("8_qtxxq")
+
+[node name="CompletedSprite" type="Sprite2D" parent="EndLevelMoneyCounter"]
+visible = false
+z_index = 6
+z_as_relative = false
+texture_filter = 1
+position = Vector2(0, 12)
+texture = ExtResource("5_4g5cr")
+
+[node name="DigitChangeInterval" type="Timer" parent="EndLevelMoneyCounter"]
+wait_time = 0.001
+
+[node name="FinishedDelay" type="Timer" parent="EndLevelMoneyCounter"]
+wait_time = 2.0
+
+[node name="InbetweenLevelUI" type="Control" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.047619)
+z_index = 6
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -165.0
+offset_top = -19.0
+offset_right = 155.0
+offset_bottom = 141.0
+size_flags_horizontal = 0
+mouse_filter = 2
+script = ExtResource("10_lwnbm")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="InbetweenLevelUI"]
+layout_mode = 2
+offset_left = 5.0
+offset_top = 46.0
+offset_right = 325.0
+offset_bottom = 46.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InbetweenLevelUI"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 325.0
+offset_bottom = 164.0
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InbetweenLevelUI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+
+[node name="LoadoutButton" type="Button" parent="InbetweenLevelUI/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lwnbm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_20eh2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_imcog")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hv1ua")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_epnj5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ogk07")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j8vvb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_2mc6k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qoxdu")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_teq3f")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_capts")
+icon = ExtResource("10_fu36u")
+
+[node name="ConRetryButton" type="Button" parent="InbetweenLevelUI/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5k7ik")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_207an")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rx7ou")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_mb0cg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_meti5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_x5sxw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nmynh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_b8i6p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3lwf7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vha2l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r321b")
+icon = ExtResource("11_lwnbm")
+
+[node name="StoreButton" type="Button" parent="InbetweenLevelUI/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s4qac")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_dw4fd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_642p6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_18fmr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_lb85r")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_k8rbf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8p807")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_vdqvo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c7unf")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_64fwa")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_51qfo")
+icon = ExtResource("12_20eh2")
+
+[node name="LevelFailedAnimationTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="LoadoutUI" type="Control" parent="."]
+visible = false
+z_index = 6
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("14_51qfo")
+
+[node name="FirstVbox" type="VBoxContainer" parent="LoadoutUI"]
+layout_mode = 0
+offset_left = -161.0
+offset_top = -85.0
+offset_right = 141.0
+offset_bottom = 59.0
+
+[node name="Divider" type="HBoxContainer" parent="LoadoutUI/FirstVbox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Loadout" type="VBoxContainer" parent="LoadoutUI/FirstVbox/Divider"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Primary" type="PanelContainer" parent="LoadoutUI/FirstVbox/Divider/Loadout"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5k7ik")
+
+[node name="loadout_equipped_button" parent="LoadoutUI/FirstVbox/Divider/Loadout/Primary" instance=ExtResource("15_vdqvo")]
+layout_mode = 2
+icon = ExtResource("14_8p807")
+
+[node name="Secondary" type="PanelContainer" parent="LoadoutUI/FirstVbox/Divider/Loadout"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5k7ik")
+
+[node name="loadout_equipped_button" parent="LoadoutUI/FirstVbox/Divider/Loadout/Secondary" instance=ExtResource("15_vdqvo")]
+layout_mode = 2
+icon = ExtResource("17_207an")
+weapon_id = 2
+slot = 1
+
+[node name="Melee" type="PanelContainer" parent="LoadoutUI/FirstVbox/Divider/Loadout"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5k7ik")
+
+[node name="loadout_equipped_button" parent="LoadoutUI/FirstVbox/Divider/Loadout/Melee" instance=ExtResource("15_vdqvo")]
+layout_mode = 2
+icon = ExtResource("18_rx7ou")
+weapon_id = 1
+slot = 2
+
+[node name="Throwable" type="PanelContainer" parent="LoadoutUI/FirstVbox/Divider/Loadout"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5k7ik")
+
+[node name="loadout_equipped_button" parent="LoadoutUI/FirstVbox/Divider/Loadout/Throwable" instance=ExtResource("15_vdqvo")]
+layout_mode = 2
+icon = ExtResource("17_64fwa")
+slot = 3
+
+[node name="Primary" type="PanelContainer" parent="LoadoutUI/FirstVbox/Divider"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_207an")
+
+[node name="Primaries" type="VBoxContainer" parent="LoadoutUI/FirstVbox/Divider/Primary"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="PrimaryLabel" type="TextureRect" parent="LoadoutUI/FirstVbox/Divider/Primary/Primaries"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("18_51qfo")
+
+[node name="PrimaryScroll" type="ScrollContainer" parent="LoadoutUI/FirstVbox/Divider/Primary/Primaries"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 119)
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_3lwf7")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="PrimaryVboxScroll" type="VBoxContainer" parent="LoadoutUI/FirstVbox/Divider/Primary/Primaries/PrimaryScroll"]
+custom_minimum_size = Vector2(0, 65.535)
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Secondary" type="PanelContainer" parent="LoadoutUI/FirstVbox/Divider"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_207an")
+
+[node name="Secondaries" type="VBoxContainer" parent="LoadoutUI/FirstVbox/Divider/Secondary"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="SecondaryLabel" type="TextureRect" parent="LoadoutUI/FirstVbox/Divider/Secondary/Secondaries"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("20_64fwa")
+
+[node name="SecondaryScroll" type="ScrollContainer" parent="LoadoutUI/FirstVbox/Divider/Secondary/Secondaries"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 119)
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_3lwf7")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="Secondaryvbox" type="VBoxContainer" parent="LoadoutUI/FirstVbox/Divider/Secondary/Secondaries/SecondaryScroll"]
+custom_minimum_size = Vector2(0, 53.75)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Misc" type="PanelContainer" parent="LoadoutUI/FirstVbox/Divider"]
+custom_minimum_size = Vector2(0, 119)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_207an")
+
+[node name="Miscs" type="VBoxContainer" parent="LoadoutUI/FirstVbox/Divider/Misc"]
+custom_minimum_size = Vector2(0, 119)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="MiscLabel" type="TextureRect" parent="LoadoutUI/FirstVbox/Divider/Misc/Miscs"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("22_51qfo")
+
+[node name="MiscsScroll" type="ScrollContainer" parent="LoadoutUI/FirstVbox/Divider/Misc/Miscs"]
+texture_filter = 1
+custom_minimum_size = Vector2(0, 119)
+layout_mode = 2
+size_flags_vertical = 2
+theme = SubResource("Theme_3lwf7")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="MiscVbox" type="VBoxContainer" parent="LoadoutUI/FirstVbox/Divider/Misc/Miscs/MiscsScroll"]
+custom_minimum_size = Vector2(0, 65.535)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="MenuButtons" type="HBoxContainer" parent="LoadoutUI/FirstVbox"]
+layout_mode = 2
+alignment = 1
+
+[node name="StoreButton" type="Button" parent="LoadoutUI/FirstVbox/MenuButtons"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s4qac")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_dw4fd")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_642p6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_18fmr")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_lb85r")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_k8rbf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8p807")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_vdqvo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_c7unf")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_64fwa")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_51qfo")
+icon = ExtResource("12_20eh2")
+
+[node name="ConRetryButton" type="Button" parent="LoadoutUI/FirstVbox/MenuButtons"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5k7ik")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_207an")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rx7ou")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_mb0cg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_meti5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_x5sxw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nmynh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_b8i6p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3lwf7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vha2l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r321b")
+icon = ExtResource("11_lwnbm")
+
+[node name="ShopUI" type="Control" parent="."]
+z_index = 6
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("14_qoxdu")
+
+[node name="Divider" type="HBoxContainer" parent="ShopUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LHS" type="VBoxContainer" parent="ShopUI/Divider"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="ShopPanel" type="PanelContainer" parent="ShopUI/Divider/LHS"]
+custom_minimum_size = Vector2(220, 130)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lwnbm")
+
+[node name="ShopVbox" type="VBoxContainer" parent="ShopUI/Divider/LHS/ShopPanel"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("15_teq3f")
+
+[node name="Layer1" type="HBoxContainer" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("16_s4qac")
+
+[node name="shop_button" type="Button" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox/Layer1"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nxybg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wfpgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya0mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dujcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_81s7v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea228")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uo70t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yfm4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gktcw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5avvd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6oxi5")
+icon = ExtResource("14_2mc6k")
+script = ExtResource("15_qoxdu")
+weapon_id = 3
+metadata/_custom_type_script = "uid://bvk38hwa8p5mk"
+
+[node name="shop_button2" type="Button" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox/Layer1"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nxybg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wfpgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya0mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dujcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_81s7v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea228")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uo70t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yfm4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gktcw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5avvd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6oxi5")
+icon = ExtResource("29_mb0cg")
+script = ExtResource("15_qoxdu")
+weapon_id = 5
+metadata/_custom_type_script = "uid://bvk38hwa8p5mk"
+
+[node name="shop_button3" type="Button" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox/Layer1"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nxybg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wfpgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya0mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dujcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_81s7v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea228")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uo70t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yfm4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gktcw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5avvd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6oxi5")
+icon = ExtResource("30_meti5")
+script = ExtResource("15_qoxdu")
+weapon_id = 4
+metadata/_custom_type_script = "uid://bvk38hwa8p5mk"
+
+[node name="shop_button4" type="Button" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox/Layer1"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nxybg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wfpgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya0mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dujcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_81s7v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea228")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uo70t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yfm4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gktcw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5avvd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6oxi5")
+icon = ExtResource("31_x5sxw")
+script = ExtResource("15_qoxdu")
+weapon_id = 8
+metadata/_custom_type_script = "uid://bvk38hwa8p5mk"
+
+[node name="Layer2" type="HBoxContainer" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("16_s4qac")
+index = 1
+
+[node name="shop_button" type="Button" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox/Layer2"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nxybg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wfpgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya0mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dujcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_81s7v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea228")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uo70t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yfm4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gktcw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5avvd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6oxi5")
+icon = ExtResource("14_2mc6k")
+script = ExtResource("15_qoxdu")
+weapon_id = 3
+metadata/_custom_type_script = "uid://bvk38hwa8p5mk"
+
+[node name="shop_button2" type="Button" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox/Layer2"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nxybg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wfpgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya0mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dujcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_81s7v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea228")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uo70t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yfm4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gktcw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5avvd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6oxi5")
+icon = ExtResource("14_2mc6k")
+script = ExtResource("15_qoxdu")
+weapon_id = 3
+metadata/_custom_type_script = "uid://bvk38hwa8p5mk"
+
+[node name="shop_button3" type="Button" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox/Layer2"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nxybg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wfpgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya0mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dujcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_81s7v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea228")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uo70t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yfm4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gktcw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5avvd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6oxi5")
+icon = ExtResource("14_2mc6k")
+script = ExtResource("15_qoxdu")
+weapon_id = 3
+metadata/_custom_type_script = "uid://bvk38hwa8p5mk"
+
+[node name="shop_button4" type="Button" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox/Layer2"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nxybg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wfpgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya0mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dujcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_81s7v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea228")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uo70t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yfm4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gktcw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5avvd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6oxi5")
+icon = ExtResource("14_2mc6k")
+script = ExtResource("15_qoxdu")
+weapon_id = 3
+metadata/_custom_type_script = "uid://bvk38hwa8p5mk"
+
+[node name="Layer3" type="HBoxContainer" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("16_s4qac")
+index = 2
+
+[node name="shop_button" type="Button" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox/Layer3"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nxybg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wfpgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya0mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dujcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_81s7v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea228")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uo70t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yfm4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gktcw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5avvd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6oxi5")
+icon = ExtResource("14_2mc6k")
+script = ExtResource("15_qoxdu")
+weapon_id = 3
+metadata/_custom_type_script = "uid://bvk38hwa8p5mk"
+
+[node name="shop_button2" type="Button" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox/Layer3"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nxybg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wfpgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya0mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dujcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_81s7v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea228")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uo70t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yfm4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gktcw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5avvd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6oxi5")
+icon = ExtResource("14_2mc6k")
+script = ExtResource("15_qoxdu")
+weapon_id = 3
+metadata/_custom_type_script = "uid://bvk38hwa8p5mk"
+
+[node name="shop_button3" type="Button" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox/Layer3"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nxybg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wfpgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya0mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dujcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_81s7v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea228")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uo70t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yfm4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gktcw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5avvd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6oxi5")
+icon = ExtResource("14_2mc6k")
+script = ExtResource("15_qoxdu")
+weapon_id = 3
+metadata/_custom_type_script = "uid://bvk38hwa8p5mk"
+
+[node name="shop_button4" type="Button" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox/Layer3"]
+modulate = Color(1, 0.2, 1, 1)
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nxybg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wfpgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya0mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dujcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_81s7v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea228")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uo70t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yfm4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gktcw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5avvd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6oxi5")
+icon = ExtResource("14_2mc6k")
+script = ExtResource("15_qoxdu")
+weapon_id = 3
+metadata/_custom_type_script = "uid://bvk38hwa8p5mk"
+
+[node name="Layer4" type="HBoxContainer" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("16_s4qac")
+index = 3
+
+[node name="shop_button" type="Button" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox/Layer4"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nxybg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wfpgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya0mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dujcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_81s7v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea228")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uo70t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yfm4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gktcw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5avvd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6oxi5")
+script = ExtResource("15_qoxdu")
+weapon_id = 2
+metadata/_custom_type_script = "uid://bvk38hwa8p5mk"
+
+[node name="shop_button2" type="Button" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox/Layer4"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nxybg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wfpgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya0mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dujcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_81s7v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea228")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uo70t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yfm4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gktcw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5avvd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6oxi5")
+icon = ExtResource("14_2mc6k")
+script = ExtResource("15_qoxdu")
+weapon_id = 3
+metadata/_custom_type_script = "uid://bvk38hwa8p5mk"
+
+[node name="shop_button3" type="Button" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox/Layer4"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nxybg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wfpgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya0mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dujcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_81s7v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea228")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uo70t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yfm4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gktcw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5avvd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6oxi5")
+icon = ExtResource("14_2mc6k")
+script = ExtResource("15_qoxdu")
+weapon_id = 3
+metadata/_custom_type_script = "uid://bvk38hwa8p5mk"
+
+[node name="shop_button4" type="Button" parent="ShopUI/Divider/LHS/ShopPanel/ShopVbox/Layer4"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_nxybg")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wfpgf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ya0mi")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_dujcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_81s7v")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ea228")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_uo70t")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_yfm4x")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gktcw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5avvd")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6oxi5")
+icon = ExtResource("14_2mc6k")
+script = ExtResource("15_qoxdu")
+weapon_id = 3
+metadata/_custom_type_script = "uid://bvk38hwa8p5mk"
+
+[node name="AmmoPanel" type="HBoxContainer" parent="ShopUI/Divider/LHS"]
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("14_ogk07")
+
+[node name="shop_ammo_button" type="Button" parent="ShopUI/Divider/LHS/AmmoPanel"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1x7dr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_s0y6o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ltirf")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ku1o8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vxp2n")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_rh52r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4reuu")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_m7bbt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5tgal")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_achlr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5xmp7")
+icon = ExtResource("14_epnj5")
+script = ExtResource("21_dw4fd")
+weapon_id = 20
+metadata/_custom_type_script = "uid://cu3qhlt8i4aoq"
+
+[node name="shop_ammo_button2" type="Button" parent="ShopUI/Divider/LHS/AmmoPanel"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1x7dr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_s0y6o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ltirf")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ku1o8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vxp2n")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_rh52r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4reuu")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_m7bbt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5tgal")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_achlr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5xmp7")
+icon = ExtResource("15_ogk07")
+script = ExtResource("21_dw4fd")
+weapon_id = 21
+metadata/_custom_type_script = "uid://cu3qhlt8i4aoq"
+
+[node name="shop_ammo_button3" type="Button" parent="ShopUI/Divider/LHS/AmmoPanel"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1x7dr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_s0y6o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ltirf")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ku1o8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vxp2n")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_rh52r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4reuu")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_m7bbt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5tgal")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_achlr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5xmp7")
+icon = ExtResource("16_j8vvb")
+script = ExtResource("21_dw4fd")
+weapon_id = 22
+metadata/_custom_type_script = "uid://cu3qhlt8i4aoq"
+
+[node name="shop_ammo_button4" type="Button" parent="ShopUI/Divider/LHS/AmmoPanel"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1x7dr")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_s0y6o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ltirf")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ku1o8")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_vxp2n")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_rh52r")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_4reuu")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_m7bbt")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_5tgal")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_achlr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5xmp7")
+icon = ExtResource("17_2mc6k")
+script = ExtResource("21_dw4fd")
+weapon_id = 19
+metadata/_custom_type_script = "uid://cu3qhlt8i4aoq"
+
+[node name="Panel" type="Panel" parent="ShopUI/Divider/LHS"]
+custom_minimum_size = Vector2(0, 2)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShopUI/Divider/LHS"]
+layout_mode = 2
+alignment = 1
+
+[node name="LoadoutButton" type="Button" parent="ShopUI/Divider/LHS/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lwnbm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_20eh2")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_imcog")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hv1ua")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_epnj5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ogk07")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_j8vvb")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_2mc6k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_qoxdu")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_teq3f")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_capts")
+icon = ExtResource("10_fu36u")
+
+[node name="ConRetryButton" type="Button" parent="ShopUI/Divider/LHS/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5k7ik")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_207an")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rx7ou")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_mb0cg")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_meti5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_x5sxw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_nmynh")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_b8i6p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_3lwf7")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_vha2l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_r321b")
+icon = ExtResource("11_lwnbm")
+
+[node name="StatsAndMoney" type="VBoxContainer" parent="ShopUI/Divider"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="StatsPanel" type="PanelContainer" parent="ShopUI/Divider/StatsAndMoney"]
+custom_minimum_size = Vector2(92, 112)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lwnbm")
+
+[node name="StatsBox" type="VBoxContainer" parent="ShopUI/Divider/StatsAndMoney/StatsPanel"]
+custom_minimum_size = Vector2(88, 108)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Name" type="Label" parent="ShopUI/Divider/StatsAndMoney/StatsPanel/StatsBox"]
+layout_mode = 2
+text = "Revolver"
+label_settings = SubResource("LabelSettings_capts")
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="ShopUI/Divider/StatsAndMoney/StatsPanel/StatsBox"]
+texture_filter = 1
+layout_mode = 2
+text = "Description"
+label_settings = SubResource("LabelSettings_j8vvb")
+horizontal_alignment = 1
+
+[node name="Damage" type="Label" parent="ShopUI/Divider/StatsAndMoney/StatsPanel/StatsBox"]
+texture_filter = 1
+layout_mode = 2
+text = "Damage:"
+label_settings = SubResource("LabelSettings_j8vvb")
+
+[node name="Ammo" type="Label" parent="ShopUI/Divider/StatsAndMoney/StatsPanel/StatsBox"]
+texture_filter = 1
+layout_mode = 2
+text = "Ammo:"
+label_settings = SubResource("LabelSettings_j8vvb")
+
+[node name="ReloadTime" type="Label" parent="ShopUI/Divider/StatsAndMoney/StatsPanel/StatsBox"]
+texture_filter = 1
+layout_mode = 2
+text = "Reload time:"
+label_settings = SubResource("LabelSettings_j8vvb")
+
+[node name="BulletSpeed" type="Label" parent="ShopUI/Divider/StatsAndMoney/StatsPanel/StatsBox"]
+texture_filter = 1
+layout_mode = 2
+text = "Bullet Speed:"
+label_settings = SubResource("LabelSettings_j8vvb")
+
+[node name="AmmoType" type="Label" parent="ShopUI/Divider/StatsAndMoney/StatsPanel/StatsBox"]
+texture_filter = 1
+layout_mode = 2
+text = "Ammo Type: 12 gau"
+label_settings = SubResource("LabelSettings_j8vvb")
+
+[node name="Cost" type="Label" parent="ShopUI/Divider/StatsAndMoney/StatsPanel/StatsBox"]
+texture_filter = 1
+layout_mode = 2
+text = "Cost:"
+label_settings = SubResource("LabelSettings_s4qac")
+
+[node name="ReshapingPanel" type="Panel" parent="ShopUI/Divider/StatsAndMoney/StatsPanel/StatsBox"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_s0cew")
+
+[node name="PurchaseButton" type="Button" parent="ShopUI/Divider/StatsAndMoney/StatsPanel/StatsBox"]
+texture_filter = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d7xmk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_gml4o")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_6xs3x")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hwq6u")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_edike")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_8j2h7")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_d70cd")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_vmgeq")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_1vdk6")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_qx11l")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_uwtf0")
+icon = ExtResource("23_capts")
+alignment = 0
+vertical_icon_alignment = 0
+
+[node name="MoneyBox" type="PanelContainer" parent="ShopUI/Divider/StatsAndMoney"]
+custom_minimum_size = Vector2(92, 25.185)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lwnbm")
+
+[node name="Money" type="Label" parent="ShopUI/Divider/StatsAndMoney/MoneyBox"]
+texture_filter = 1
+layout_mode = 2
+text = " $"
+label_settings = SubResource("LabelSettings_dw4fd")
+
+[connection signal="start_game" from="MainMenu" to="." method="_on_main_menu_start_game"]
+[connection signal="timeout" from="EndLevelMoneyCounter/DigitChangeInterval" to="EndLevelMoneyCounter" method="_on_digit_change_interval_timeout"]
+[connection signal="pressed" from="InbetweenLevelUI/VBoxContainer/HBoxContainer/LoadoutButton" to="InbetweenLevelUI" method="_on_loadout_button_pressed"]
+[connection signal="pressed" from="ShopUI/Divider/LHS/HBoxContainer/LoadoutButton" to="InbetweenLevelUI" method="_on_loadout_button_pressed"]

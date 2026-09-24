@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dchqxw850o87t"]
+
+[ext_resource type="FontFile" uid="uid://dc6bkdvyp8fr" path="res://Pixelon.ttf" id="1_2q12q"]
+[ext_resource type="Script" uid="uid://dmc4fiatmpix0" path="res://Scripts/pickuptext.gd" id="1_rdurd"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2q12q"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_qvaum"]
+font = ExtResource("1_2q12q")
+font_size = 8
+
+[node name="Pickuptext" type="Label"]
+light_mask = 0
+z_index = 20
+material = SubResource("CanvasItemMaterial_2q12q")
+offset_left = -18.0
+offset_top = -3.0
+offset_right = 22.0
+offset_bottom = 5.0
+text = "Testing"
+label_settings = SubResource("LabelSettings_qvaum")
+horizontal_alignment = 1
+script = ExtResource("1_rdurd")
+
+[node name="RemoveTimer" type="Timer" parent="."]

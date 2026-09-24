@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://drsmr2owf0uc"]
+
+[ext_resource type="Script" uid="uid://8c8vbfptbghn" path="res://Scripts/weapon related/null_weapin.gd" id="1_vomot"]
+
+[node name="null" type="Node2D"]
+script = ExtResource("1_vomot")
+damage = -1
+metadata/_custom_type_script = "uid://q57vi66y4bl5"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

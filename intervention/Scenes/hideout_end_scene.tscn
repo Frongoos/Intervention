@@ -1,0 +1,120 @@
+[gd_scene load_steps=14 format=3 uid="uid://bbbpg8oab1f0"]
+
+[ext_resource type="Script" uid="uid://ba67pc6e6fjdi" path="res://Scenes/hideout_end_scene.gd" id="1_s7ecf"]
+[ext_resource type="Texture2D" uid="uid://b7akp6n30uge1" path="res://Sprites/hideout_endscene.png" id="2_qtri7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qpyje"]
+atlas = ExtResource("2_qtri7")
+region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ve1g"]
+atlas = ExtResource("2_qtri7")
+region = Rect2(640, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3inuy"]
+atlas = ExtResource("2_qtri7")
+region = Rect2(960, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnbgl"]
+atlas = ExtResource("2_qtri7")
+region = Rect2(1280, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbheq"]
+atlas = ExtResource("2_qtri7")
+region = Rect2(1600, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7ecf"]
+atlas = ExtResource("2_qtri7")
+region = Rect2(320, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrf8t"]
+atlas = ExtResource("2_qtri7")
+region = Rect2(1600, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtri7"]
+atlas = ExtResource("2_qtri7")
+region = Rect2(1920, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7bac"]
+atlas = ExtResource("2_qtri7")
+region = Rect2(2240, 0, 320, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2bmq"]
+atlas = ExtResource("2_qtri7")
+region = Rect2(2560, 0, 320, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dmvj1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qpyje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ve1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3inuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnbgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbheq")
+}],
+"loop": false,
+"name": &"OpenPhone",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7ecf")
+}],
+"loop": false,
+"name": &"PhoneScreen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrf8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtri7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7bac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2bmq")
+}],
+"loop": false,
+"name": &"ViewMessages",
+"speed": 1.0
+}]
+
+[node name="hideout_end_scene" type="Node2D"]
+script = ExtResource("1_s7ecf")
+metadata/_custom_type_script = "uid://pr0ks7ndhete"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_dmvj1")
+animation = &"PhoneScreen"
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="PhoneOpenTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="BetweenOpen" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="EndTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5.135, 5.135)

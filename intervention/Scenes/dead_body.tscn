@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://bnrllbm302nfm"]
+
+[ext_resource type="Texture2D" uid="uid://c17eaqndbov7y" path="res://Sprites/blood_pool.png" id="1_0qney"]
+[ext_resource type="Script" uid="uid://di0cehkkgae3s" path="res://Scripts/dead_body.gd" id="1_ma0eo"]
+[ext_resource type="AudioStream" uid="uid://osawg7ynj2g5" path="res://Sounds/NonWeaponRelated/enemyHit.mp3" id="3_ma0eo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gep7t"]
+atlas = ExtResource("1_0qney")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cpfa"]
+atlas = ExtResource("1_0qney")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8c1w"]
+atlas = ExtResource("1_0qney")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6vj6"]
+atlas = ExtResource("1_0qney")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qubi1"]
+atlas = ExtResource("1_0qney")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1e22"]
+atlas = ExtResource("1_0qney")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w5bts"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gep7t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cpfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8c1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6vj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qubi1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1e22")
+}],
+"loop": false,
+"name": &"bloodpool",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_46k07"]
+radius = 6.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_ma0eo")
+
+[node name="DeadBody" type="AnimatedSprite2D" parent="."]
+z_index = -6
+texture_filter = 1
+rotation = 1.5708
+
+[node name="BloodPool" type="AnimatedSprite2D" parent="."]
+z_index = -7
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_w5bts")
+animation = &"bloodpool"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_46k07")
+
+[node name="DeathNoise" type="AudioStreamPlayer2D" parent="."]
+
+[node name="HitNoise" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ma0eo")
+volume_db = 7.0

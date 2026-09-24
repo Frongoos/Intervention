@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://by7uj07lv5gn"]
+
+[ext_resource type="Texture2D" uid="uid://kfhx8pbpu6pk" path="res://Sprites/junkie_green_death.png" id="1_aahoh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ud6tr"]
+atlas = ExtResource("1_aahoh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5jkg"]
+atlas = ExtResource("1_aahoh")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkvv7"]
+atlas = ExtResource("1_aahoh")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84mnm"]
+atlas = ExtResource("1_aahoh")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxx2m"]
+atlas = ExtResource("1_aahoh")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwe38"]
+atlas = ExtResource("1_aahoh")
+region = Rect2(320, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ud6tr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5jkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkvv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84mnm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxx2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rwe38")
+}],
+"loop": false,
+"name": &"die",
+"speed": 20.0
+}]

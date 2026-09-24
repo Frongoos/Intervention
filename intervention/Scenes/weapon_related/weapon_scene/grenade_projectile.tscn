@@ -1,0 +1,115 @@
+[gd_scene load_steps=14 format=3 uid="uid://d01ume0jeoim5"]
+
+[ext_resource type="Script" uid="uid://dvtb3nj1et23h" path="res://Scripts/weapon related/grenade_projectile.gd" id="1_hdyd3"]
+[ext_resource type="Texture2D" uid="uid://dullu786qcric" path="res://Sprites/intervention_greande.png" id="2_hdyd3"]
+[ext_resource type="Script" uid="uid://b2jke8qx3hoyq" path="res://Scripts/weapon related/hurtbox.gd" id="2_ieusb"]
+[ext_resource type="Script" uid="uid://b021umbr2u006" path="res://Scripts/weapon related/hitbox.gd" id="5_ddgvp"]
+[ext_resource type="Texture2D" uid="uid://d1qvtjrdx7uun" path="res://Sprites/greande_explosion_lighttexture.png" id="5_ku26h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieusb"]
+atlas = ExtResource("2_hdyd3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4usf8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ieusb")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_abarp"]
+radius = 56.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdyd3"]
+size = Vector2(4, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6ckl"]
+size = Vector2(4, 5)
+
+[sub_resource type="Animation" id="Animation_p6ckl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flash:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ddgvp"]
+resource_name = "detonate"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flash:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.01, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q30oo"]
+_data = {
+&"RESET": SubResource("Animation_p6ckl"),
+&"detonate": SubResource("Animation_ddgvp")
+}
+
+[node name="grenade" type="CharacterBody2D"]
+collision_layer = 0
+script = ExtResource("1_hdyd3")
+metadata/_custom_type_script = "uid://dvtb3nj1et23h"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_4usf8")
+
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 6
+monitoring = false
+script = ExtResource("2_ieusb")
+metadata/_custom_type_script = "uid://b2jke8qx3hoyq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+shape = SubResource("CircleShape2D_abarp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_hdyd3")
+
+[node name="HurtboxActiveTime" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Flash" type="PointLight2D" parent="."]
+enabled = false
+energy = 10.0
+shadow_enabled = true
+texture = ExtResource("5_ku26h")
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 6
+collision_mask = 0
+script = ExtResource("5_ddgvp")
+metadata/_custom_type_script = "uid://b021umbr2u006"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(1, 1.5)
+shape = SubResource("RectangleShape2D_p6ckl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_q30oo")
+}

@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://ccsr3yidawkpc"]
+
+[ext_resource type="Script" uid="uid://ceddig2wpwmat" path="res://Scripts/door.gd" id="1_v6xrn"]
+[ext_resource type="Texture2D" uid="uid://b5n73g66i061l" path="res://Sprites/intervention_crackhouse_doorpxo.png" id="2_p0e35"]
+[ext_resource type="AudioStream" uid="uid://cx8jsekslyry4" path="res://Sounds/NonWeaponRelated/doorOpen.mp3" id="3_ab4ky"]
+[ext_resource type="AudioStream" uid="uid://0sl38h71nctj" path="res://Sounds/NonWeaponRelated/doorClose.mp3" id="4_a43ba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xadh"]
+size = Vector2(32, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6xrn"]
+size = Vector2(31.6818, 9.74498)
+
+[sub_resource type="Animation" id="Animation_0phs7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_v6xrn"]
+resource_name = "new_animation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_50cdl"]
+_data = {
+&"RESET": SubResource("Animation_0phs7"),
+&"open": SubResource("Animation_v6xrn")
+}
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p0e35"]
+polygon = PackedVector2Array(14.8677, -0.181922, -15.1323, -0.181922, -15.1323, -4.18192, -17.1323, -4.18192, -17.1323, 5.81808, -15.1323, 5.81808, -15.1323, 1.81808, 14.8677, 1.81808)
+
+[node name="door" type="CharacterBody2D"]
+script = ExtResource("1_v6xrn")
+layer = 1
+metadata/_custom_type_script = "uid://dm2khkgt5w6wm"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(14, -1)
+texture = ExtResource("2_p0e35")
+
+[node name="useBox" type="Area2D" parent="."]
+position = Vector2(5.13882, 1.53852)
+collision_layer = 64
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="useBox"]
+position = Vector2(8.86118, -1.03852)
+shape = SubResource("RectangleShape2D_4xadh")
+debug_color = Color(0.718458, 0.703907, 0.316006, 0.42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14.1069, -0.120337)
+shape = SubResource("RectangleShape2D_v6xrn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_50cdl")
+}
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(15.1323, -0.818078)
+occluder = SubResource("OccluderPolygon2D_p0e35")
+
+[node name="OpenNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ab4ky")
+
+[node name="CloseNoise" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_a43ba")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjx1q80og1mn7"]
+
+[ext_resource type="Script" uid="uid://drgvcpj5e7b3h" path="res://Scripts/weapon related/grenade_hold.gd" id="1_u6aas"]
+
+[node name="GrenadeHold" type="Node2D"]
+script = ExtResource("1_u6aas")
+
+[node name="ThrowableStartPoint" type="Node2D" parent="."]
+position = Vector2(8, 11)
+
+[node name="FuseTime" type="Timer" parent="."]
+one_shot = true
+
+[node name="PostThrowCoolDown" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true

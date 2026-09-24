@@ -1,0 +1,99 @@
+[gd_scene load_steps=13 format=3 uid="uid://deml7adak6uwe"]
+
+[ext_resource type="Script" uid="uid://s82tfuwjgaqm" path="res://small_health.gd" id="1_8club"]
+[ext_resource type="Texture2D" uid="uid://sqt650agkpei" path="res://Sprites/smallhealthkit.png" id="2_euk6g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itw10"]
+atlas = ExtResource("2_euk6g")
+region = Rect2(0, 0, 6, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_thhl1"]
+atlas = ExtResource("2_euk6g")
+region = Rect2(6, 0, 6, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obv1d"]
+atlas = ExtResource("2_euk6g")
+region = Rect2(12, 0, 6, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edbyb"]
+atlas = ExtResource("2_euk6g")
+region = Rect2(18, 0, 6, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk446"]
+atlas = ExtResource("2_euk6g")
+region = Rect2(24, 0, 6, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80gb6"]
+atlas = ExtResource("2_euk6g")
+region = Rect2(30, 0, 6, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwney"]
+atlas = ExtResource("2_euk6g")
+region = Rect2(36, 0, 6, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_csgc4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itw10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thhl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obv1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edbyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk446")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80gb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwney")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80gb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk446")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edbyb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obv1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_thhl1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u14dx"]
+size = Vector2(22, 22)
+
+[sub_resource type="AudioStream" id="AudioStream_8club"]
+
+[node name="SmallHealth" type="Node2D"]
+script = ExtResource("1_8club")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_csgc4")
+animation = &"idle"
+
+[node name="pickupBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickupBox"]
+shape = SubResource("RectangleShape2D_u14dx")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStream_8club")

@@ -1,0 +1,76 @@
+[gd_scene load_steps=12 format=3 uid="uid://wtxjpsg2uecx"]
+
+[ext_resource type="Script" uid="uid://bk6vc24da6ghx" path="res://Scripts/weapon related/melee.gd" id="1_pgkuq"]
+[ext_resource type="Texture2D" uid="uid://dloiq0bvttlbu" path="res://Sprites/knife.png" id="2_pgkuq"]
+[ext_resource type="AudioStream" uid="uid://dsuv7oxehgj1b" path="res://Sounds/WeaponRelated/meleeSwing.mp3" id="3_u5hbe"]
+
+[sub_resource type="AudioStream" id="AudioStream_6dub5"]
+
+[sub_resource type="AudioStream" id="AudioStream_kdqfc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts28m"]
+atlas = ExtResource("2_pgkuq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f45h6"]
+atlas = ExtResource("2_pgkuq")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dub5"]
+atlas = ExtResource("2_pgkuq")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgkuq"]
+atlas = ExtResource("2_pgkuq")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u18nq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts28m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f45h6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dub5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgkuq")
+}],
+"loop": false,
+"name": &"melee_swing",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_poav2"]
+size = Vector2(25, 40)
+
+[node name="knife" type="Node2D"]
+script = ExtResource("1_pgkuq")
+attack_duration = 0.25
+damage = 25
+type = 3
+equip_sound = SubResource("AudioStream_6dub5")
+use_sound = SubResource("AudioStream_kdqfc")
+attack_delay = 1.0
+metadata/_custom_type_script = "uid://bk6vc24da6ghx"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+sprite_frames = SubResource("SpriteFrames_u18nq")
+animation = &"melee_swing"
+frame = 3
+frame_progress = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(13, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_poav2")
+
+[node name="SwingPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_u5hbe")
+volume_db = 6.0

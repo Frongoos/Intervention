@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://iiv0oyjngaqm"]
+
+[ext_resource type="Texture2D" uid="uid://bqfvvdv3h1ocj" path="res://Sprites/intervention_barrel_1.png" id="1_7ka7k"]
+[ext_resource type="Script" uid="uid://dm2khkgt5w6wm" path="res://Scripts/prop.gd" id="1_h8ns2"]
+[ext_resource type="Script" uid="uid://b021umbr2u006" path="res://Scripts/weapon related/hitbox.gd" id="2_h8ns2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b7jfx"]
+radius = 30.7692
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6laha"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7ka7k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_h8ns2"]
+polygon = PackedVector2Array(0, -30.7692, 15.3846, -30.7692, 30.7692, -15.3846, 30.7692, 0, 30.7692, 15.3846, 15.3846, 30.7692, 0, 30.7692, -15.3846, 30.7692, -30.7692, 15.3846, -30.7692, 0, -30.7692, -15.3846, -15.3846, -30.7692)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h8ns2"]
+radius = 31.0161
+
+[node name="prop" type="CharacterBody2D"]
+scale = Vector2(0.07, 0.07)
+collision_layer = 128
+script = ExtResource("1_h8ns2")
+health = 100
+metadata/_custom_type_script = "uid://dm2khkgt5w6wm"
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 7
+script = ExtResource("2_h8ns2")
+metadata/_custom_type_script = "uid://b021umbr2u006"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+scale = Vector2(1.01778, 0.953884)
+shape = SubResource("CircleShape2D_b7jfx")
+debug_color = Color(0.872234, 0.318019, 0.377265, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_6laha")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+scale = Vector2(0.65, 0.65)
+occluder = SubResource("OccluderPolygon2D_h8ns2")
+occluder_light_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.920406, 0.881646)
+shape = SubResource("CircleShape2D_h8ns2")
